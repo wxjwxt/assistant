@@ -1,0 +1,4 @@
+include  'assistant_base' ,'assistant_server'
+
+rootProject .name = 'assistant'
+

@@ -1,0 +1,77 @@
+buildscript {
+    ext {
+        kotlinVersion = '1.2.21'
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
+}
+
+
+version = '0.0.1-SNAPSHOT'
+
+allprojects {
+    group = 'com.aqhi.hbuas'
+}
+
+
+subprojects {
+    apply plugin: 'kotlin'
+    apply plugin: 'kotlin-spring'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = 1.8
+
+    compileKotlin {
+        kotlinOptions {
+            freeCompilerArgs = ["-Xjsr305=strict"]
+            jvmTarget = "1.8"
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            freeCompilerArgs = ["-Xjsr305=strict"]
+            jvmTarget = "1.8"
+        }
+    }
+
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
+        mavenCentral()
+    }
+
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('com.fasterxml.jackson.module:jackson-module-kotlin')
+        compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+        compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+
+        //默认默认情况下 jackson-module-kotlin版本 引用的 kotlin-reflect 太低 新的 kotlin-reflect 中已经 没有 KotlinReflectionInternalError 这类
+        compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.4.1'
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
