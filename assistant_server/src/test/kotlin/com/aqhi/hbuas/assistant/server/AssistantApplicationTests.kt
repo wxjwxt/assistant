@@ -1,4 +1,4 @@
-package com.aqhi.hbuas.assistant
+package com.aqhi.hbuas.assistant.server
 
 import org.junit.Test
 import org.junit.runner.RunWith
