@@ -1,0 +1,13 @@
+spring:
+    datasource:
+        driverClassName:  com.mysql.jdbc.Driver
+    profiles:
+      active: dev
+
+
+
+server:
+    port: 1102
+
+
+

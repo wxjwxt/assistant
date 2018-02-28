@@ -24,13 +24,39 @@ allprojects {
 }
 
 
-subprojects {
+subprojects {subject ->
     apply plugin: 'kotlin'
     apply plugin: 'kotlin-spring'
     apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'application'
     apply plugin: 'org.springframework.boot'
 
     sourceCompatibility = 1.8
+
+    sourceSets{
+        main{
+            java {
+                srcDirs 'src/main/java' , 'src/main/kotlin'
+            }
+
+            resources {
+                srcDir 'src/main/resources' //资源目录
+            }
+        }
+    }
+
+    //mainClassName
+    def directory = project.name - "assistant_" //
+    def mainClassPath = "Assistant${directory.substring(0, 1).toUpperCase() + directory.substring(1)}Application" // EhoomeBaseApplication
+    mainClassName = "com.aqhi.hbuas.assistant.${directory}.${mainClassPath}"
+
+
+    jar {
+        manifest {
+            attributes 'Main-Class': mainClassName
+        }
+    }
 
     compileKotlin {
         kotlinOptions {
@@ -54,14 +80,16 @@ subprojects {
 
 
     dependencies {
-        compile('org.springframework.boot:spring-boot-starter-web')
-        compile('com.fasterxml.jackson.module:jackson-module-kotlin')
-        compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-        compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+
+        if (subject.name != "assistant_base") {
+            compile project(':assistant_base')
+        }
+
+        compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.4.1'
+
         testCompile('org.springframework.boot:spring-boot-starter-test')
 
-        //默认默认情况下 jackson-module-kotlin版本 引用的 kotlin-reflect 太低 新的 kotlin-reflect 中已经 没有 KotlinReflectionInternalError 这类
-        compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.4.1'
+
     }
 }
 
