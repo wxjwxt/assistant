@@ -3,7 +3,7 @@ package com.aqhi.hbuas.assistant.server
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["com.aqhi.hbuas.assistant.server", "com.aqhi.hbuas.assistant.base"])
 class AssistantServerApplication
 
 
