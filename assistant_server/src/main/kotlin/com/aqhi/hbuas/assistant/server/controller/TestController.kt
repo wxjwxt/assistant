@@ -18,7 +18,7 @@ class TestController{
     @Autowired
     lateinit var userService: IUserService
 
-    @GetMapping("/")
+    @GetMapping("/test")
     fun test() : User {
         return userService.findByUserId(1)
     }

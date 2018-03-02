@@ -16,7 +16,7 @@ class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int = -1
+    var id: Long = -1
     var name: String = ""
     var password: String = ""
     var salt: String = ""
