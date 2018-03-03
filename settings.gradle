@@ -1,4 +1,4 @@
-include  'assistant_base' ,'assistant_server'
+include  'assistant_base' ,'assistant_server','assistant_task'
 
 rootProject .name = 'assistant'
 

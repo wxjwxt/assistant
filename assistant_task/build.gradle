@@ -1,0 +1,11 @@
+dependencies {
+    compile project(':assistant_base')
+
+    jar {
+        manifest {
+            attributes 'Main-Class': "com.aqhi.assistant.task.AssistantTaskApplicationKt"
+        }
+    }
+
+
+}
