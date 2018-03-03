@@ -13,4 +13,10 @@ class AssistantApplicationTests {
 	fun contextLoads() {
 	}
 
+
+	@Test
+	fun authTest(){
+
+	}
+
 }

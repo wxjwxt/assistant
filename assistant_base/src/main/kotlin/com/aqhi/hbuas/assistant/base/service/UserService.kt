@@ -1,6 +1,6 @@
 package com.aqhi.hbuas.assistant.base.service
 
-import com.aqhi.hbuas.assistant.base.bean.bo.User
+import com.aqhi.hbuas.assistant.base.bean.bo.dao.User
 import com.aqhi.hbuas.assistant.base.dao.UserDao
 import org.springframework.stereotype.Service
 import javax.annotation.Resource
@@ -17,7 +17,7 @@ class UserService : IUserService{
     @Resource
     lateinit var userDao : UserDao
 
-    override fun findByUserId(userId: Int): User = userDao.findById(userId)
+    override fun findByUserId(userId: Long): User = userDao.findById(userId)
 
 }
 

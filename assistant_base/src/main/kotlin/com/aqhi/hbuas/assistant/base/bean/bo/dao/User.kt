@@ -1,4 +1,4 @@
-package com.aqhi.hbuas.assistant.base.bean.bo
+package com.aqhi.hbuas.assistant.base.bean.bo.dao
 
 import javax.persistence.*
 
@@ -17,6 +17,7 @@ class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
+    var openId: String = ""
     var name: String = ""
     var password: String = ""
     var salt: String = ""

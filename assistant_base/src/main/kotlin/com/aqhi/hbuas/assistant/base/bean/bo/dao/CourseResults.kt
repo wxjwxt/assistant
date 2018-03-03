@@ -1,4 +1,4 @@
-package com.aqhi.hbuas.assistant.base.bean.bo
+package com.aqhi.hbuas.assistant.base.bean.bo.dao
 
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType

@@ -24,11 +24,11 @@ allprojects {
 }
 
 
-subprojects {subject ->
+subprojects {subproject ->
     apply plugin: 'kotlin'
     apply plugin: 'kotlin-spring'
     apply plugin: 'idea'
-    apply plugin: 'java'
+//    apply plugin: 'java'
     apply plugin: 'application'
     apply plugin: 'org.springframework.boot'
 
@@ -46,17 +46,17 @@ subprojects {subject ->
         }
     }
 
-    //mainClassName
-    def directory = project.name - "assistant_" //
-    def mainClassPath = "Assistant${directory.substring(0, 1).toUpperCase() + directory.substring(1)}Application" // EhoomeBaseApplication
-    mainClassName = "com.aqhi.hbuas.assistant.${directory}.${mainClassPath}"
-
-
-    jar {
-        manifest {
-            attributes 'Main-Class': mainClassName
-        }
-    }
+//    //mainClassName
+//    def directory = project.name - "assistant_" //
+//    def mainClassPath = "Assistant${directory.substring(0, 1).toUpperCase() + directory.substring(1)}ApplicationKt"
+//    mainClassName = "com.aqhi.hbuas.assistant.${directory}.${mainClassPath}"
+//
+//
+//    jar {
+//        manifest {
+//            attributes 'Main-Class': mainClassName
+//        }
+//    }
 
     compileKotlin {
         kotlinOptions {
@@ -81,9 +81,9 @@ subprojects {subject ->
 
     dependencies {
 
-        if (subject.name != "assistant_base") {
-            compile project(':assistant_base')
-        }
+//        if (subproject.name != "assistant_base") {
+//            compile project(':assistant_base')
+//        }
 
         compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.4.1'
 

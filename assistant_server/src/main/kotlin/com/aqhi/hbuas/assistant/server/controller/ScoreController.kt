@@ -1,8 +1,5 @@
 package com.aqhi.hbuas.assistant.server.controller
 
-import com.aqhi.hbuas.assistant.base.bean.bo.User
-import com.aqhi.hbuas.assistant.base.service.IUserService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/score")
 class ScoreController {
-
 
     @GetMapping("/")
     fun get() = "hello"

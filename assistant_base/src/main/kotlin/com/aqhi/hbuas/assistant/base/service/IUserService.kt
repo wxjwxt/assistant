@@ -1,6 +1,6 @@
 package com.aqhi.hbuas.assistant.base.service
 
-import com.aqhi.hbuas.assistant.base.bean.bo.User
+import com.aqhi.hbuas.assistant.base.bean.bo.dao.User
 
 /**
  * @author aqhi
@@ -10,5 +10,5 @@ import com.aqhi.hbuas.assistant.base.bean.bo.User
 
 interface IUserService {
 
-    fun findByUserId(userId : Int) : User
+    fun findByUserId(userId : Long) : User
 }

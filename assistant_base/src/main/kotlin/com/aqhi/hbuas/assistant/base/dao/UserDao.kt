@@ -1,6 +1,7 @@
 package com.aqhi.hbuas.assistant.base.dao
 
-import com.aqhi.hbuas.assistant.base.bean.bo.User
+import com.aqhi.hbuas.assistant.base.bean.bo.dao.User
+import org.springframework.cache.annotation.CacheConfig
 import org.springframework.data.repository.PagingAndSortingRepository
 
 /**
@@ -9,8 +10,8 @@ import org.springframework.data.repository.PagingAndSortingRepository
  * @version 1.0.0
  */
 
+@CacheConfig(cacheNames = arrayOf("users"))
+interface UserDao: PagingAndSortingRepository<User, Long>{
 
-interface UserDao: PagingAndSortingRepository<User , Int>{
-
-    fun findById(id : Int) : User
+    fun findById(id : Long) : User
 }

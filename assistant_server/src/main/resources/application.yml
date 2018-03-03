@@ -8,6 +8,14 @@ spring:
 
 server:
     port: 1102
+    tomcat:
+
+
+
+wechat:
+    hbuas:
+        token: comaqhitoken20180303
+        appId: wx4a3edc9b04eb343c
 
 
 

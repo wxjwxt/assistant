@@ -1,5 +1,11 @@
-dependencies{
-//    compile project(':assistant_base')
-//    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.4.1'
+dependencies {
+    compile project(':assistant_base')
+
+    jar {
+        manifest {
+            attributes 'Main-Class': "com.aqhi.hbuas.assistant.server.AssistantServerApplicationKt"
+        }
+    }
+
 
 }
