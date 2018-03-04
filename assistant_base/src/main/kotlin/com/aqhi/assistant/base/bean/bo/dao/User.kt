@@ -22,6 +22,14 @@ class User {
     var password: String = ""
     var salt: String = ""
 
+    @OneToOne
+    @JoinColumn(name = "id")
+    lateinit var userInfo: UserInfo
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    lateinit var schoolRoll: SchoolRoll
+
     //手动重写toString方法
     override fun toString(): String {
         return "[User(id = $id,name = $name)]"

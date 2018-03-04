@@ -22,14 +22,14 @@ class CourseResults {
      * 所属用户
      */
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     lateinit var user: User
 
     /**
      * 课程
      */
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "course_id")
     lateinit var course: Course
 
     /**

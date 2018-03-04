@@ -8,6 +8,8 @@ import javax.persistence.*
  * @version 1.0.0
  */
 
+@Entity
+@Table(name = "course")
 class Course{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +19,7 @@ class Course{
      * 所属大学
      */
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "university_id")
     lateinit var university: University
 
     /**

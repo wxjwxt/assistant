@@ -4,31 +4,29 @@ import javax.persistence.*
 
 /**
  * @author aqhi
- * @date 2018/3/3 .
+ * @date 2018/3/4 .
  * @version 1.0.0
  */
 
 @Entity
-@Table(name = "university")
-class University{
+@Table(name = "major")
+class Major{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
 
     /**
-     * 大学编号
-     */
-    var number: String = ""
-
-    /**
-     * 大学名称
+     * 专业名
      */
     var name: String = ""
+
     /**
-     * 大学地址
+     * 所属院系
      */
-    var address: String = ""
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    lateinit var department: Department
 
 
 }
